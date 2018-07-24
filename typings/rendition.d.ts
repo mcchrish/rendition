@@ -367,6 +367,15 @@ declare module 'rendition' {
 
 	class Provider extends Component<any, any> {}
 
+	type PillProps = Coloring &
+		Shading &
+		TxtProps & {
+			small?: boolean;
+			style?: React.CSSProperties;
+		};
+
+	class Pill extends RenderableElementWithProps<PillProps, any> {}
+
 	interface ProgressBarProps extends DefaultProps, Coloring, Sizing {
 		value: number;
 	}
@@ -523,6 +532,10 @@ declare module 'rendition' {
 	interface WithSemilight {
 		semilight: string;
 	}
+
+	type ColorShade = keyof ThemeColorSet;
+
+	type Shading = { shade?: ColorShade };
 
 	interface Theme {
 		breakpoints: number[];
